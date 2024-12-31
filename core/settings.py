@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'playlists',
     'songs',
+    'artists',
+    'albums',
 ]
 
 MIDDLEWARE = [

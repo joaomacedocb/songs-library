@@ -1,7 +1,7 @@
 from django.db import models
 from uuid import uuid4
 
-class artists(models.Model):
+class Artist(models.Model):
     id = models.UUIDField(primary_key=True, default= uuid4, editable=False)
     name = models.CharField(max_length=100, unique=True)
     bio = models.TextField(max_length=500)

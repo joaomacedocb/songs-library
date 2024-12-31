@@ -1,6 +1,8 @@
 from django.db import models
 from uuid import uuid4
 
+from artists.models import Artist
+
 class Genre(models.Model):
     id = models.UUIDField(primary_key=True, default= uuid4, editable=False)
     name = models.CharField(max_length=50, unique=True)
@@ -11,8 +13,8 @@ class Genre(models.Model):
 class Song(models.Model):
     id_song = models.UUIDField(primary_key=True, default= uuid4, editable=False)
     title = models.CharField(max_length=100)
-    artist = models.CharField(max_length=100)
-    duration = models.DurationField()
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    duration = models.DurationField(null=True, blank=True)
     record = models.CharField(max_length=100)
     genres = models.ManyToManyField(Genre, related_name="songs")
     created_at = models.DateTimeField(auto_now_add=True)
@@ -20,4 +22,3 @@ class Song(models.Model):
     
     def __str__(self):
         return f'{self.name} by {self.artist}'
-    
