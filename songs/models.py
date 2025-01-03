@@ -2,6 +2,7 @@ from django.db import models
 from uuid import uuid4
 
 from artists.models import Artist
+from albums.models import Album
 
 class Genre(models.Model):
     id = models.UUIDField(primary_key=True, default= uuid4, editable=False)
@@ -15,7 +16,7 @@ class Song(models.Model):
     title = models.CharField(max_length=100)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     duration = models.DurationField(null=True, blank=True)
-    record = models.CharField(max_length=100)
+    record = models.ForeignKey(Album, on_delete=models.CASCADE)
     genres = models.ManyToManyField(Genre, related_name="songs")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
