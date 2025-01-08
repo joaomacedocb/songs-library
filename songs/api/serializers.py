@@ -8,6 +8,12 @@ class GenresSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class SongsSerializer(serializers.ModelSerializer):
+    
+    artist_name = serializers.CharField(source='artist.name', read_only = True)
+    
     class Meta:
         model = Song
-        fields = "__all__"
+        fields = [
+        'id_song', 'title', 'artist', 'artist_name', 'duration', 
+        'record', 'genres', 'created_at', 'updated_at'
+        ]
