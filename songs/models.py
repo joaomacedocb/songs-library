@@ -16,7 +16,7 @@ class Song(models.Model):
     title = models.CharField(max_length=100)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name="songs")
     duration = models.DurationField(null=True, blank=True)
-    record = models.ForeignKey(Album, on_delete=models.CASCADE, related_name="songs")
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name="songs")
     genres = models.ManyToManyField(Genre, related_name="songs")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
