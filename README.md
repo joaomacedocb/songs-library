@@ -1,4 +1,4 @@
-# ENGLISH
+ENGLISH
 
 # Trackbase API
 
@@ -97,7 +97,7 @@ Feel free to reach out via LinkedIn for questions, suggestions, or collaboration
 ---
 
 
-# PORTUGUESE
+PORTUGUESE
 
 
 # Trackbase API
